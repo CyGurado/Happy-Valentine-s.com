@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Day</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff7eb3, #ff758c);
+      font-family: 'Arial', sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    h1 {
+      color: white;
+      font-size: 3rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      position: absolute;
+      top: 20%;
+    }
+
+    .button-container {
+      position: relative;
+      display: flex;
+      gap: 20px;
+    }
+
+    .button {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      color: white;
+      background-color: #ff4d6d;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease;
+      position: absolute;
+    }
+
+    .button:hover {
+      background-color: #ff3355;
+    }
+
+    .flower {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-color: #ffcc00;
+      border-radius: 50%;
+      animation: float 6s infinite ease-in-out;
+    }
+
+    .flower::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 30px;
+      height: 30px;
+      background-color: #ff9900;
+      border-radius: 50%;
+    }
+
+    .flower::after {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 15px;
+      height: 15px;
+      background-color: #ff6600;
+      border-radius: 50%;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #ff4d6d;
+      transform: rotate(-45deg);
+      animation: fall 5s linear infinite;
+    }
+
+    .heart::before, .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #ff4d6d;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      top: 0;
+      left: 10px;
+    }
+
+    @keyframes fall {
+      0% {
+        top: -10%;
+      }
+      100% {
+        top: 110%;
+      }
+    }
+
+    .message {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      font-size: 1.5rem;
+      color: #ff4d6d;
+    }
+
+    .message::before {
+      content: '💖';
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Will You Be My Valentine?</h1>
+  <div class="button-container">
+    <button class="button" id="yesButton" style="left: 40%; top: 50%;">Yes</button>
+    <button class="button" id="noButton" style="left: 60%; top: 50%;">No</button>
+  </div>
+
+  <!-- Flowers -->
+  <div class="flower" style="left: 10%; top: 10%;"></div>
+  <div class="flower" style="left: 30%; top: 20%;"></div>
+  <div class="flower" style="left: 70%; top: 15%;"></div>
+  <div class="flower" style="left: 90%; top: 5%;"></div>
+
+  <!-- Falling Hearts -->
+  <div class="heart" style="left: 5%; animation-delay: 0s;"></div>
+  <div class="heart" style="left: 15%; animation-delay: 1s;"></div>
+  <div class="heart" style="left: 25%; animation-delay: 2s;"></div>
+  <div class="heart" style="left: 35%; animation-delay: 3s;"></div>
+  <div class="heart" style="left: 45%; animation-delay: 4s;"></div>
+  <div class="heart" style="left: 55%; animation-delay: 5s;"></div>
+  <div class="heart" style="left: 65%; animation-delay: 6s;"></div>
+  <div class="heart" style="left: 75%; animation-delay: 7s;"></div>
+  <div class="heart" style="left: 85%; animation-delay: 8s;"></div>
+  <div class="heart" style="left: 95%; animation-delay: 9s;"></div>
+
+  <!-- Message -->
+  <div class="message" id="message">
+    Happy Valentine's my Love!
+
+You are the best thing that happened in my life. Every single second that we spent together are the most happiest and fun times I've every had. I will never fail to meet your expectations cause I want you to deserve the best treatment you will ever have in your life my love. My life will not be complete without, cause without you my life will not be complete. You are the cure to all of my problems and it only takes one smile from you too take it all away. Know that I am always her to support you and be there always by your side. Remember that I love you always forever and ever and ever 999999999999999.
+
+Love you so much!
+WeiWei 💖
+  </div>
+
+  <script>
+    const noButton = document.getElementById('noButton');
+    const yesButton = document.getElementById('yesButton');
+    const message = document.getElementById('message');
+
+    noButton.addEventListener('mouseover', () => {
+      const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+      const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+      noButton.style.left = `${x}px`;
+      noButton.style.top = `${y}px`;
+    });
+
+    yesButton.addEventListener('click', () => {
+      message.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
